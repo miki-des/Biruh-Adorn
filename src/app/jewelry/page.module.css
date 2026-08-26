@@ -1,0 +1,21 @@
+.page {
+  padding-top: calc(var(--spacing-editorial) + 80px); /* 80px accounts for header height */
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+}
+
+.header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.title {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.description {
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  margin: 0 auto;
+}

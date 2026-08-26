@@ -1,0 +1,19 @@
+.hero {
+  padding: calc(var(--spacing-editorial) + 80px) 0 var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.content {
+  max-width: 800px;
+}
+
+.title {
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin: 0;
+}

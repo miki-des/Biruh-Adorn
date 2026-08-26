@@ -1,0 +1,59 @@
+.section {
+  padding: var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--spacing-xl) * 1.5);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-xl);
+    align-items: center; /* helps with masonry feel */
+  }
+}
+
+/* 
+  Asymmetrical Editorial Grid Logic
+  Uses the 12-column system to vary widths based on coverRatio.
+  Because standard CSS grid is rigorous, we map ratios to column spans to create rhythm.
+*/
+
+@media (min-width: 768px) {
+  /* Portrait collections typically take 5 columns */
+  .gridItem[data-ratio="portrait"] {
+    grid-column: span 5;
+  }
+  
+  /* Landscape collections typically take 7 columns */
+  .gridItem[data-ratio="landscape"] {
+    grid-column: span 7;
+  }
+  
+  /* Square collections typically take 6 columns */
+  .gridItem[data-ratio="square"] {
+    grid-column: span 6;
+  }
+
+  /* To prevent rigid alignment, we stagger the items */
+  /* If a portrait is followed by a landscape, they fill 12 cols. */
+  /* If we have two portraits (5+5=10), we can offset one to create whitespace. */
+  
+  .gridItem[data-ratio="portrait"]:nth-child(even) {
+    grid-column: 7 / span 5; /* Push to the right */
+  }
+  
+  .gridItem[data-ratio="square"]:nth-child(even) {
+    grid-column: 6 / span 6; /* Push slightly right */
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: calc(var(--spacing-xl) * 2);
+  }
+}

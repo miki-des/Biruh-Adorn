@@ -1,0 +1,132 @@
+.trigger {
+  background: transparent;
+  border: none;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  z-index: 100;
+  position: relative;
+  padding: var(--spacing-sm);
+}
+
+@media (min-width: 1024px) {
+  .trigger {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--color-bg-primary);
+  z-index: 90;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
+  transition: opacity var(--motion-medium), visibility var(--motion-medium);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 100px var(--spacing-page) var(--spacing-page);
+}
+
+.overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100%;
+}
+
+.navList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-section);
+}
+
+.navItem {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--motion-medium), transform var(--motion-medium);
+}
+
+.overlay.open .navItem {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navLink {
+  color: var(--color-text-primary);
+  display: inline-block;
+  transition: color var(--motion-fast);
+}
+
+.navLink:hover {
+  color: var(--color-accent);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+  border-top: 1px solid var(--color-border-subtle);
+  padding-top: var(--spacing-lg);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--motion-slow) 0.3s, transform var(--motion-slow) 0.3s;
+}
+
+.overlay.open .footer {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.footerLabel {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--spacing-micro);
+}
+
+.footerLink {
+  color: var(--color-text-secondary);
+  transition: color var(--motion-fast);
+}
+
+.footerLink:hover {
+  color: var(--color-text-primary);
+}
+
+.socialLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+.footerBrand {
+  margin-top: var(--spacing-md);
+  color: var(--color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navItem, .footer {
+    transition: opacity var(--motion-fast);
+    transform: none;
+  }
+}

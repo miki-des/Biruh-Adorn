@@ -1,0 +1,289 @@
+/* Empty Catalogue State */
+.emptyCatalogue {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-editorial) 0;
+  text-align: center;
+}
+
+.emptyContent {
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyTitle {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin: var(--spacing-md) 0;
+}
+
+.emptyText {
+  color: var(--color-text-secondary);
+}
+
+/* Gallery Active State */
+.galleryWrapper {
+  padding-bottom: var(--spacing-section);
+}
+
+/* Controls */
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.searchWrapper {
+  position: relative;
+  max-width: 360px;
+}
+
+.searchIcon {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-text-muted);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.625rem 0 0.625rem 1.75rem;
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  transition: border-color var(--motion-fast);
+}
+
+.searchInput:focus {
+  outline: none;
+  border-bottom-color: var(--color-accent);
+}
+
+.searchInput::placeholder {
+  color: var(--color-text-muted);
+  font-style: italic;
+}
+
+.filterGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.filterRow {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filterBtn {
+  background: transparent;
+  border: none;
+  padding: 0.25rem 0;
+  color: var(--color-text-muted);
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: color var(--motion-fast);
+  position: relative;
+}
+
+.filterBtn:hover {
+  color: var(--color-text-primary);
+}
+
+.filterBtn.active {
+  color: var(--color-accent);
+}
+
+.filterBtn.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--color-accent);
+}
+
+/* Results */
+.resultsCount {
+  margin-bottom: 1.5rem;
+  color: var(--color-text-muted);
+}
+
+/* Product Grid - Clean 4-column layout */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 560px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* Product Card */
+.card {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+  color: inherit;
+  font-family: inherit;
+}
+
+.cardImage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border-subtle);
+  /* Consistent Arch Shape for all cards */
+  border-radius: 50vw 50vw 0 0;
+}
+
+@media (min-width: 900px) {
+  .cardImage {
+    border-radius: 120px 120px 0 0;
+  }
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--motion-slow);
+}
+
+.card:hover .image {
+  transform: scale(1.05);
+}
+
+.cardPlaceholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-muted);
+  font-size: 0.75rem;
+}
+
+/* Hover overlay */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(4, 9, 20, 0.5);
+  opacity: 0;
+  transition: opacity var(--motion-medium);
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+}
+
+.viewLabel {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+/* Card Info */
+.cardInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.75rem 0 0;
+}
+
+.cardName {
+  font-family: var(--font-display), serif;
+  font-size: clamp(0.8rem, 1.2vw, 1rem);
+  font-weight: 400;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  line-height: 1.3;
+}
+
+.cardPrice {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+/* No Results */
+.noResults {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl) 0;
+  text-align: center;
+  gap: var(--spacing-md);
+}
+
+.noResultsText {
+  color: var(--color-text-secondary);
+}
+
+.resetBtn {
+  margin-top: var(--spacing-sm);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--color-accent);
+  padding: 0 0 2px 0;
+  color: var(--color-accent);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .image, .card:hover .image {
+    transition: none;
+    transform: none;
+  }
+  .cardOverlay, .card:hover .cardOverlay {
+    transition: none;
+  }
+}

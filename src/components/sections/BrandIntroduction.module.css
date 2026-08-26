@@ -1,0 +1,34 @@
+.section {
+  padding: var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  max-width: 800px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statement {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin: var(--spacing-md) 0;
+}
+
+.body {
+  color: var(--color-text-secondary);
+  max-width: 600px;
+}

@@ -1,0 +1,45 @@
+.section {
+  padding: var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+  text-align: center;
+}
+
+.sequence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.label {
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.word {
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.arrow {
+  color: var(--color-accent);
+  font-size: 1.5rem;
+  font-family: var(--font-primary);
+}
+
+.stepFinal {
+  margin-top: var(--spacing-md);
+}
+
+.finalWord {
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}

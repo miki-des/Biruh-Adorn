@@ -1,0 +1,82 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  width: 100%;
+}
+
+.imageLink {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  overflow: hidden;
+}
+
+.imageSlot {
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.card:hover .imageSlot {
+  transform: scale(1.02);
+}
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  align-items: flex-start;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.titleLink {
+  text-decoration: none;
+}
+
+.name {
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  transition: color var(--motion-fast);
+  margin: 0;
+}
+
+.titleLink:hover .name {
+  color: var(--color-accent);
+}
+
+.subtitle {
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+}
+
+.cta {
+  display: inline-block;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  font-family: var(--font-primary);
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-accent);
+  padding-bottom: 2px;
+  margin-top: var(--spacing-xs);
+  transition: opacity var(--motion-fast);
+}
+
+.cta:hover {
+  opacity: 0.7;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageSlot, .card:hover .imageSlot {
+    transition: none;
+    transform: none;
+  }
+}

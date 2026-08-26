@@ -1,0 +1,78 @@
+.section {
+  padding: var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.graphicWrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.wireSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.wirePath {
+  fill: none;
+  stroke: var(--color-accent);
+  stroke-width: 2;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 6s ease-in-out infinite alternate;
+}
+
+.stages {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--spacing-xl) * 1.5);
+  z-index: 1;
+  padding: var(--spacing-xl) 0;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.num {
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-xs);
+}
+
+.word {
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wirePath {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

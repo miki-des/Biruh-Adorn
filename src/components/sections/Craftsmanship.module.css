@@ -1,0 +1,91 @@
+.section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-section);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .content {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-editorial);
+  }
+}
+
+.visuals {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.secondaryVisual {
+  width: 50%;
+  margin-top: calc(var(--spacing-xl) * -1);
+  margin-left: auto;
+  border: 1px solid var(--color-bg-primary); /* Creating a cutout effect */
+  z-index: 2;
+}
+
+.wireContainer {
+  position: absolute;
+  top: 10%;
+  left: 20%;
+  width: 120%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+  color: var(--color-accent);
+  opacity: 0.5;
+}
+
+.wireSvg {
+  width: 100%;
+  height: 100%;
+}
+
+.narrative {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-text-primary);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  border-left: 1px solid var(--color-accent);
+  padding-left: var(--spacing-md);
+  position: relative;
+}
+
+/* Add node to the timeline */
+.step::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+}
+
+.desc {
+  color: var(--color-text-secondary);
+}

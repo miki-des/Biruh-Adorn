@@ -1,0 +1,53 @@
+.section {
+  padding: var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(12, 1fr);
+    gap: var(--spacing-lg);
+    align-items: center;
+  }
+
+  .imageItem {
+    grid-column: span 6;
+  }
+
+  /* 
+    Asymmetrical Gallery Rhythm 
+    This assigns different column spans and offsets based on position.
+  */
+  
+  .imageItem[data-ratio="16:9"] {
+    grid-column: 2 / span 10;
+  }
+  
+  .imageItem[data-ratio="3:4"]:nth-child(odd) {
+    grid-column: 2 / span 5;
+  }
+  
+  .imageItem[data-ratio="3:4"]:nth-child(even) {
+    grid-column: 7 / span 5;
+  }
+
+  .imageItem[data-ratio="4:3"]:nth-child(odd) {
+    grid-column: 1 / span 7;
+  }
+
+  .imageItem[data-ratio="1:1"] {
+    grid-column: 4 / span 6;
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    gap: var(--spacing-xl);
+  }
+}

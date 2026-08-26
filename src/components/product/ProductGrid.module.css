@@ -1,0 +1,31 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.featuredItem {
+  grid-column: span 12;
+}
+
+.standardItem {
+  grid-column: span 12;
+}
+
+@media (min-width: 768px) {
+  .featuredItem {
+    grid-column: span 8;
+  }
+  .standardItem {
+    grid-column: span 4;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featuredItem {
+    grid-column: span 6;
+  }
+  .standardItem {
+    grid-column: span 3;
+  }
+}

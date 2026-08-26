@@ -1,0 +1,42 @@
+.hero {
+  padding: calc(var(--spacing-editorial) + 80px) 0 var(--spacing-editorial) 0;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-xl);
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-editorial);
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-md);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.title {
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.imageWrapper {
+  width: 100%;
+}

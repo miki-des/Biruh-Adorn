@@ -1,0 +1,23 @@
+.section {
+  padding: calc(var(--spacing-editorial) * 1.5) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .actions {
+    flex-direction: row;
+    gap: var(--spacing-xl);
+  }
+}

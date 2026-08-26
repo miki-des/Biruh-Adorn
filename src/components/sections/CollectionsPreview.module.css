@@ -1,0 +1,71 @@
+.section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.title {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.subtitle {
+  color: var(--color-text-muted);
+}
+
+.grid {
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.collectionCard {
+  grid-column: span 12;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  transition: opacity var(--motion-medium);
+}
+
+@media (min-width: 768px) {
+  .collectionCard {
+    grid-column: span 6;
+  }
+}
+
+.collectionCard:hover {
+  opacity: 0.9;
+}
+
+.imageWrapper {
+  overflow: hidden;
+}
+
+.imageSlot {
+  transition: transform var(--motion-slow);
+}
+
+.collectionCard:hover .imageSlot {
+  transform: scale(1.02);
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  align-items: center;
+  text-align: center;
+}
+
+.action {
+  color: var(--color-text-secondary);
+  transition: color var(--motion-fast);
+}
+
+.collectionCard:hover .action {
+  color: var(--color-text-primary);
+}

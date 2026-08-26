@@ -1,0 +1,27 @@
+.section {
+  padding: calc(var(--spacing-editorial) * 1.5) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrow {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+  text-transform: uppercase;
+}
+
+.mood {
+  color: var(--color-text-primary);
+  margin: 0;
+}

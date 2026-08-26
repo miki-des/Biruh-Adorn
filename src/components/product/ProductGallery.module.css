@@ -1,0 +1,40 @@
+.gallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.mainImage {
+  width: 100%;
+  overflow: hidden;
+}
+
+.thumbnails {
+  display: flex;
+  gap: var(--spacing-xs);
+  overflow-x: auto;
+  padding-bottom: var(--spacing-xs);
+  scrollbar-width: none; /* Firefox */
+}
+
+.thumbnails::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.thumbnailBtn {
+  flex: 0 0 calc(25% - var(--spacing-xs));
+  background: none;
+  border: 1px solid transparent;
+  padding: 0;
+  cursor: pointer;
+  transition: border-color var(--motion-fast);
+}
+
+.thumbnailBtn:hover {
+  border-color: var(--color-border-subtle);
+}
+
+.thumbnailBtn.active {
+  border-color: var(--color-accent);
+}

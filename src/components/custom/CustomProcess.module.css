@@ -1,0 +1,62 @@
+.section {
+  padding: var(--spacing-section) 0;
+  background-color: var(--color-bg-secondary);
+}
+
+.header {
+  margin-bottom: var(--spacing-xl);
+  text-align: center;
+}
+
+.title {
+  color: var(--color-text-primary);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  padding-left: var(--spacing-lg);
+  border-left: 1px solid var(--color-accent);
+  position: relative;
+}
+
+.step::before {
+  content: "";
+  position: absolute;
+  left: -4px;
+  top: 6px;
+  width: 7px;
+  height: 7px;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.num {
+  color: var(--color-accent);
+}
+
+.stepTitle {
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+}
+
+.stepDesc {
+  color: var(--color-text-secondary);
+  max-width: 500px;
+}

@@ -1,0 +1,64 @@
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 160px;
+  padding-bottom: 120px;
+}
+
+.container {
+  text-align: center;
+  max-width: 640px;
+}
+
+.label {
+  color: var(--color-accent, #c9a96e);
+  margin-bottom: 1rem;
+  letter-spacing: 0.15em;
+}
+
+.title {
+  margin-bottom: 1.5rem;
+}
+
+.divider {
+  width: 60px;
+  height: 1px;
+  background: var(--color-accent, #c9a96e);
+  margin: 0 auto 2rem;
+}
+
+.body {
+  color: var(--color-text-secondary, #a0a0a0);
+  margin-bottom: 3rem;
+  line-height: 1.8;
+}
+
+.contactGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.contactItem {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.contactItem a {
+  color: var(--color-text-primary, #fff);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contactItem a:hover {
+  color: var(--color-accent, #c9a96e);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+}

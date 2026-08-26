@@ -1,0 +1,109 @@
+:root {
+  /* Colors - Biruh Adorn Palette */
+  --color-bg-primary: #040914; /* Deep Navy Environment */
+  --color-bg-secondary: #081224;
+  --color-bg-elevated: #0C1A33;
+  --color-bg-overlay: rgba(4, 9, 20, 0.85);
+
+  --color-text-primary: #FAF9F6; /* Ivory Voice */
+  --color-text-secondary: #EBEAE5;
+  --color-text-muted: #B3B9C5;
+  --color-text-inverse: #040914; /* For use on ivory backgrounds if needed */
+
+  --color-accent: #D4AF37; /* Champagne Gold Detail */
+  --color-accent-muted: rgba(212, 175, 55, 0.6);
+  --color-accent-hover: #E6C865;
+
+  --color-border: rgba(250, 249, 246, 0.1);
+  --color-border-subtle: rgba(250, 249, 246, 0.05);
+  --color-border-accent: rgba(212, 175, 55, 0.4);
+
+  /* Typography Scale */
+  --text-display-xl: clamp(3rem, 8vw, 6rem);
+  --text-display-lg: clamp(2.5rem, 6vw, 4.5rem);
+  --text-h1: clamp(2rem, 5vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 4vw, 2.5rem);
+  --text-h3: clamp(1.5rem, 3vw, 2rem);
+  --text-h4: clamp(1.25rem, 2vw, 1.5rem);
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  
+  --text-metadata: 0.8125rem;
+  --text-reference: 0.875rem;
+  
+  /* Spacing System */
+  --spacing-micro: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 2rem;
+  --spacing-section: clamp(4rem, 10vw, 8rem);
+  --spacing-page: clamp(1rem, 5vw, 3rem); /* Page side margins */
+  
+  --spacing-editorial: clamp(2rem, 6vw, 6rem); /* For asymmetrical layouts */
+
+  /* Motion & Animation */
+  --motion-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-medium: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-slow: 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  --motion-reveal: 1.2s cubic-bezier(0.2, 0.8, 0.2, 1); /* Cinematic slow reveal */
+  
+  /* Grid System config (max-width for containers) */
+  --grid-max-width: 1440px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0s;
+    --motion-medium: 0s;
+    --motion-slow: 0s;
+    --motion-reveal: 0s;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans), Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Base Accessibility / Focus State */
+*:focus-visible {
+  outline: 1px solid var(--color-accent);
+  outline-offset: 4px;
+}
+
+/* Typographic resets */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display), serif;
+  font-weight: 400; /* Bodoni works best at regular/medium */
+  line-height: 1.1;
+  color: var(--color-text-primary);
+}
+
+p {
+  line-height: 1.6;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+}

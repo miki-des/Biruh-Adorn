@@ -1,0 +1,29 @@
+.container {
+  width: 100%;
+  max-width: var(--grid-max-width);
+  margin: 0 auto;
+  padding-left: var(--spacing-page);
+  padding-right: var(--spacing-page);
+}
+
+.grid {
+  display: grid;
+  /* 12 column desktop grid, scaling down appropriately */
+  grid-template-columns: repeat(12, 1fr);
+  gap: var(--spacing-md);
+}
+
+/* Base mobile fallback */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}

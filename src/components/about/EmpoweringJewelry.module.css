@@ -1,0 +1,29 @@
+.section {
+  padding: calc(var(--spacing-editorial) * 1.5) 0;
+  background-color: var(--color-bg-primary);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.eyebrowLine {
+  width: 2px;
+  height: 60px;
+  background-color: var(--color-accent);
+  margin-bottom: var(--spacing-lg);
+}
+
+.statement {
+  color: var(--color-text-primary);
+  line-height: 1.1;
+  margin: 0;
+}

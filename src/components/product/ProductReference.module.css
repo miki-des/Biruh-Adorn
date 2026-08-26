@@ -1,0 +1,33 @@
+.referenceBtn {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  cursor: pointer;
+  color: var(--color-text-secondary);
+  transition: color var(--motion-fast);
+}
+
+.referenceBtn:hover {
+  color: var(--color-text-primary);
+}
+
+.refText {
+  color: inherit;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+}
+
+.icon {
+  width: 100%;
+  height: 100%;
+}

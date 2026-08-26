@@ -1,0 +1,117 @@
+.section {
+  padding: var(--spacing-editorial) 0;
+  background-color: var(--color-bg-primary);
+  overflow: hidden; /* Prevent horizontal scroll on body */
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.eyebrow {
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+}
+
+.link {
+  text-decoration: none;
+}
+
+.handle {
+  color: var(--color-text-primary);
+  transition: color var(--motion-fast);
+  margin: 0;
+}
+
+.link:hover .handle {
+  color: var(--color-accent);
+}
+
+/* Marquee Carousel Styles */
+.marqueeContainer {
+  width: 100vw;
+  max-width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+
+/* Add a subtle fade on the edges for a polished look */
+.marqueeContainer::before,
+.marqueeContainer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 10vw;
+  max-width: 150px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marqueeContainer::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-bg-primary) 0%, transparent 100%);
+}
+
+.marqueeContainer::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-bg-primary) 0%, transparent 100%);
+}
+
+.marqueeTrack {
+  display: flex;
+  gap: var(--spacing-sm);
+  width: max-content;
+  /* Adjust speed by changing seconds */
+  animation: scroll 40s linear infinite; 
+}
+
+/* Pause on hover for accessibility and engagement */
+.marqueeTrack:hover {
+  animation-play-state: paused;
+}
+
+.imageItem {
+  width: 60vw;
+  max-width: 320px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Translate exactly half the width since we quadrupled the array, but translating -50% works if we double it. With 4x, we can translate -50% to cycle through 2 sets. */
+    transform: translateX(calc(-50% - (var(--spacing-sm) / 2)));
+  }
+}
+
+@media (min-width: 768px) {
+  .marqueeTrack {
+    gap: var(--spacing-md);
+  }
+  
+  .imageItem {
+    width: 25vw;
+    max-width: 380px;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-50% - (var(--spacing-md) / 2)));
+    }
+  }
+}
+
+

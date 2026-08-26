@@ -1,0 +1,65 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  width: 100%;
+}
+
+.imageLink {
+  display: block;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.imageWrapper {
+  overflow: hidden;
+}
+
+.imageSlot {
+  transition: transform var(--motion-slow);
+}
+
+.card:hover .imageSlot {
+  transform: scale(1.02);
+}
+
+.metadata {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.titleLink {
+  text-decoration: none;
+}
+
+.name {
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color var(--motion-fast);
+}
+
+.titleLink:hover .name {
+  color: var(--color-accent);
+}
+
+.metaRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding-bottom: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.actions {
+  display: flex;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageSlot, .card:hover .imageSlot {
+    transition: none;
+    transform: none;
+  }
+}

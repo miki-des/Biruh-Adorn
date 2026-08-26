@@ -1,0 +1,156 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 800px;
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-bg-primary);
+}
+
+.imageWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  animation: revealImage var(--motion-reveal) ease-out forwards;
+}
+
+.imageSlot {
+  width: 100%;
+  height: 100%;
+  border-radius: 0 !important; /* Override global arch shape for hero */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, var(--color-bg-primary) 0%, rgba(4, 9, 20, 0.4) 100%);
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.textContainer {
+  max-width: 800px;
+  animation: fadeUp 1.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  animation-delay: 0.2s;
+}
+
+.title {
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-text-primary);
+}
+
+.wireDetail {
+  width: 150px;
+  height: 20px;
+  color: var(--color-accent);
+  margin-bottom: var(--spacing-sm);
+  opacity: 0.8;
+}
+
+.wireSvg {
+  width: 100%;
+  height: 100%;
+  stroke-dasharray: 150;
+  stroke-dashoffset: 150;
+  animation: drawWire 2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 1s;
+}
+
+.tagline {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: var(--spacing-lg);
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--spacing-lg);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  opacity: 0;
+  animation: fadeIn var(--motion-slow) forwards;
+  animation-delay: 2s;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, var(--color-accent), transparent);
+}
+
+/* Animations */
+@keyframes revealImage {
+  from {
+    transform: scale(1.05);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes drawWire {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .imageWrapper,
+  .textContainer,
+  .scrollIndicator {
+    animation: fadeIn var(--motion-slow) forwards;
+    transform: none;
+  }
+  .wireSvg {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}
