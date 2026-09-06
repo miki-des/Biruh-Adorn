@@ -8,6 +8,7 @@ import { socialConfig } from "../../config/social";
 import { brandConfig } from "../../config/brand";
 import { Typography } from "../ui/Typography";
 import { generateWhatsAppUrl } from "../../lib/whatsapp";
+import { generateTelegramUrl } from "../../lib/telegram";
 import styles from "./MobileMenu.module.css";
 
 export function MobileMenu() {
@@ -42,6 +43,7 @@ export function MobileMenu() {
   }, [isOpen]);
 
   const whatsappUrl = generateWhatsAppUrl("contact");
+  const telegramUrl = generateTelegramUrl("contact");
 
   return (
     <>
@@ -93,7 +95,10 @@ export function MobileMenu() {
                 Inquiries
               </Typography>
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
-                <Typography variant="body">WhatsApp Us</Typography>
+                <Typography variant="body">WhatsApp</Typography>
+              </a>
+              <a href={telegramUrl} target="_blank" rel="noopener noreferrer" className={styles.footerLink}>
+                <Typography variant="body">Telegram</Typography>
               </a>
               <a href={`mailto:${contactConfig.email}`} className={styles.footerLink}>
                 <Typography variant="body">Email Us</Typography>

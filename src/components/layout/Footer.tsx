@@ -7,10 +7,12 @@ import { navigationConfig } from "../../config/navigation";
 import { Container, Grid } from "../ui/Grid";
 import { Typography } from "../ui/Typography";
 import { generateWhatsAppUrl } from "../../lib/whatsapp";
+import { generateTelegramUrl } from "../../lib/telegram";
 import styles from "./Footer.module.css";
 
 export function Footer() {
   const whatsappUrl = generateWhatsAppUrl("contact");
+  const telegramUrl = generateTelegramUrl("contact");
 
   return (
     <footer className={styles.footer}>
@@ -50,6 +52,11 @@ export function Footer() {
               <li>
                 <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
                   WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href={telegramUrl} target="_blank" rel="noopener noreferrer" className={styles.link}>
+                  Telegram
                 </a>
               </li>
               <li>

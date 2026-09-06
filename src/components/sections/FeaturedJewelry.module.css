@@ -64,6 +64,18 @@
   margin-bottom: var(--spacing-xs);
 }
 
+.inquireActions {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  align-self: flex-start;
+}
+
+.separator {
+  color: var(--color-text-muted);
+  font-size: 0.875rem;
+}
+
 .inquireLink {
   color: var(--color-accent);
   text-decoration: none;

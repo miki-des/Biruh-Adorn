@@ -3,10 +3,12 @@ import { Container } from "../ui/Grid";
 import { Typography } from "../ui/Typography";
 import { LinkButton } from "../ui/Button";
 import { generateWhatsAppUrl } from "../../lib/whatsapp";
+import { generateTelegramUrl } from "../../lib/telegram";
 import styles from "./CustomJewelry.module.css";
 
 export function CustomJewelry() {
   const whatsappUrl = generateWhatsAppUrl("custom");
+  const telegramUrl = generateTelegramUrl("custom");
 
   return (
     <section className={styles.section}>
@@ -30,7 +32,10 @@ export function CustomJewelry() {
               Create Something Personal
             </LinkButton>
             <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className={styles.secondaryAction}>
-              <Typography variant="reference">Discuss on WhatsApp</Typography>
+              <Typography variant="reference">WhatsApp</Typography>
+            </a>
+            <a href={telegramUrl} target="_blank" rel="noopener noreferrer" className={styles.secondaryAction}>
+              <Typography variant="reference">Telegram</Typography>
             </a>
           </div>
         </div>

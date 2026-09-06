@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography } from "../ui/Typography";
 import { generateWhatsAppUrl } from "../../lib/whatsapp";
+import { generateTelegramUrl } from "../../lib/telegram";
 import { Product } from "../../data/products";
 import styles from "./ProductInquiry.module.css";
 
@@ -15,29 +16,55 @@ export function ProductInquiry({ product, variant = "minimal" }: ProductInquiryP
     name: product.name,
     reference: product.reference,
   });
+  
+  const telegramUrl = generateTelegramUrl("product", {
+    name: product.name,
+    reference: product.reference,
+  });
 
   if (variant === "minimal") {
     return (
-      <a 
-        href={whatsappUrl} 
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className={styles.inquireLinkMinimal}
-      >
-        <Typography variant="body-sm">Inquire</Typography>
-      </a>
+      <div className={styles.minimalContainer}>
+        <a 
+          href={whatsappUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className={styles.inquireLinkMinimal}
+        >
+          <Typography variant="body-sm">WhatsApp</Typography>
+        </a>
+        <span className={styles.separator}>|</span>
+        <a 
+          href={telegramUrl} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          className={styles.inquireLinkMinimal}
+        >
+          <Typography variant="body-sm">Telegram</Typography>
+        </a>
+      </div>
     );
   }
 
   // Full variant for PDP
   return (
-    <a 
-      href={whatsappUrl} 
-      target="_blank" 
-      rel="noopener noreferrer" 
-      className={styles.inquireLinkFull}
-    >
-      <span className={styles.inquireText}>Inquire on WhatsApp</span>
-    </a>
+    <div className={styles.fullContainer}>
+      <a 
+        href={whatsappUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.inquireLinkFull}
+      >
+        <span className={styles.inquireText}>WhatsApp</span>
+      </a>
+      <a 
+        href={telegramUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        className={styles.inquireLinkFull}
+      >
+        <span className={styles.inquireText}>Telegram</span>
+      </a>
+    </div>
   );
 }

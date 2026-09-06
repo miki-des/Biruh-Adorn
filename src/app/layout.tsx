@@ -3,19 +3,19 @@ import { Bodoni_Moda, Inter } from "next/font/google";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
 import { FloatingWhatsApp } from "../components/layout/FloatingWhatsApp";
+import { FloatingTelegram } from "../components/layout/FloatingTelegram";
 import { brandConfig } from "../config/brand";
 import "./globals.css";
-
-const bodoniModa = Bodoni_Moda({
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-  weight: ["400", "500", "600"],
-});
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-sans",
+  display: "swap",
+});
+
+const interDisplay = Inter({
+  subsets: ["latin"],
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -31,13 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${bodoniModa.variable} ${inter.variable}`}>
+      <body className={`${interDisplay.variable} ${inter.variable}`}>
         <Header />
         <main style={{ minHeight: "100vh" }}>
           {children}
         </main>
         <Footer />
         <FloatingWhatsApp />
+        <FloatingTelegram />
       </body>
     </html>
   );

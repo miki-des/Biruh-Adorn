@@ -3,6 +3,7 @@ import { Container, Grid } from "../ui/Grid";
 import { Typography } from "../ui/Typography";
 import { ImageSlot } from "../ui/ImageSlot";
 import { generateWhatsAppUrl } from "../../lib/whatsapp";
+import { generateTelegramUrl } from "../../lib/telegram";
 import styles from "./FeaturedJewelry.module.css";
 
 export function FeaturedJewelry() {
@@ -33,14 +34,25 @@ export function FeaturedJewelry() {
                 <Typography variant="reference">REF. BA001</Typography>
                 <Typography variant="price">ETB 2,300</Typography>
               </div>
-              <a 
-                href={generateWhatsAppUrl("general")} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className={styles.inquireLink}
-              >
-                <Typography variant="body-sm">Inquire</Typography>
-              </a>
+              <div className={styles.inquireActions}>
+                <a 
+                  href={generateWhatsAppUrl("general")} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.inquireLink}
+                >
+                  <Typography variant="body-sm">WhatsApp</Typography>
+                </a>
+                <span className={styles.separator}>|</span>
+                <a 
+                  href={generateTelegramUrl("general")} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className={styles.inquireLink}
+                >
+                  <Typography variant="body-sm">Telegram</Typography>
+                </a>
+              </div>
             </div>
           </div>
 

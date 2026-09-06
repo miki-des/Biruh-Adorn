@@ -73,6 +73,15 @@
 
 .submitWrapper {
   margin-top: var(--spacing-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+@media (min-width: 768px) {
+  .submitWrapper {
+    flex-direction: row;
+  }
 }
 
 .submitBtn {

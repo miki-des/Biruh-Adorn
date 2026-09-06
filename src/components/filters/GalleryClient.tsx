@@ -4,6 +4,7 @@ import React, { useState, useMemo } from "react";
 import Image from "next/image";
 import { Product } from "../../data/products";
 import { ProductModal } from "../product/ProductModal";
+import { ProductInquiry } from "../product/ProductInquiry";
 import { Typography } from "../ui/Typography";
 import { Container } from "../ui/Grid";
 import styles from "./GalleryClient.module.css";
@@ -132,14 +133,14 @@ export function GalleryClient({ initialProducts, categories, collections }: Gall
               }).format(product.price);
 
               return (
-                <button
-                  key={product.id}
-                  className={styles.card}
-                  onClick={() => setSelectedProduct(product)}
-                  aria-label={`View ${product.name}`}
-                >
-                  <div className={styles.cardImage}>
-                    {primaryImage ? (
+                <div key={product.id} className={styles.card}>
+                  <button
+                    className={styles.cardImageButton}
+                    onClick={() => setSelectedProduct(product)}
+                    aria-label={`View ${product.name}`}
+                  >
+                    <div className={styles.cardImage}>
+                      {primaryImage ? (
                       <Image
                         src={primaryImage}
                         alt={product.name}
@@ -156,11 +157,20 @@ export function GalleryClient({ initialProducts, categories, collections }: Gall
                       <span className={styles.viewLabel}>View Details</span>
                     </div>
                   </div>
-                  <div className={styles.cardInfo}>
-                    <span className={styles.cardName}>{product.name}</span>
-                    <span className={styles.cardPrice}>{formattedPrice}</span>
-                  </div>
                 </button>
+                <div className={styles.cardInfo}>
+                    <button 
+                      className={styles.cardTitleButton}
+                      onClick={() => setSelectedProduct(product)}
+                    >
+                      <span className={styles.cardName}>{product.name}</span>
+                    </button>
+                    <span className={styles.cardPrice}>{formattedPrice}</span>
+                    <div className={styles.cardActions}>
+                      <ProductInquiry product={product} variant="minimal" />
+                    </div>
+                  </div>
+                </div>
               );
             })}
           </div>

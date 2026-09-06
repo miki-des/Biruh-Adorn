@@ -42,6 +42,12 @@ export default function ContactPage() {
             </a>
           </div>
           <div className={styles.contactItem}>
+            <Typography variant="reference">Telegram</Typography>
+            <a href={`https://t.me/${contactConfig.telegram}`} target="_blank" rel="noopener noreferrer">
+              <Typography variant="body">@{contactConfig.telegram}</Typography>
+            </a>
+          </div>
+          <div className={styles.contactItem}>
             <Typography variant="reference">Locations</Typography>
             <Typography variant="body">{brandConfig.locations.join(" · ")}</Typography>
           </div>
@@ -50,6 +56,9 @@ export default function ContactPage() {
         <div className={styles.actions}>
           <LinkButton href={`https://wa.me/${contactConfig.whatsapp.replace("+", "")}`} variant="primary">
             Message on WhatsApp
+          </LinkButton>
+          <LinkButton href={`https://t.me/${contactConfig.telegram}`} variant="secondary">
+            Message on Telegram
           </LinkButton>
         </div>
       </Container>

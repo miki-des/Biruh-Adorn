@@ -3,14 +3,7 @@
   width: 100%;
   overflow: hidden;
   background-color: var(--color-bg-secondary);
-  border-radius: 8rem 8rem 0 0; /* Elegant arch shape globally */
-  transition: border-radius var(--motion-slow);
-}
-
-@media (max-width: 768px) {
-  .slot {
-    border-radius: 4rem 4rem 0 0;
-  }
+  border-radius: 0;
 }
 
 /* Aspect Ratios */

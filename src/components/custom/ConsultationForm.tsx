@@ -2,11 +2,12 @@
 
 import React, { useState } from "react";
 import { generateWhatsAppUrl, ConsultationPayload } from "../../lib/whatsapp";
+import { generateTelegramUrl } from "../../lib/telegram";
 import { Typography } from "../ui/Typography";
 import styles from "./ConsultationForm.module.css";
 
 export function ConsultationForm() {
-  const [status, setStatus] = useState<"idle" | "validating" | "redirecting">("idle");
+  const [status, setStatus] = useState<"idle" | "validating" | "redirecting-whatsapp" | "redirecting-telegram">("idle");
   const [formData, setFormData] = useState<ConsultationPayload>({
     name: "",
     phone: "",
@@ -26,8 +27,7 @@ export function ConsultationForm() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = (platform: "whatsapp" | "telegram") => {
     setStatus("validating");
 
     const newErrors: Partial<Record<keyof ConsultationPayload, string>> = {};
@@ -41,7 +41,7 @@ export function ConsultationForm() {
       return;
     }
 
-    setStatus("redirecting");
+    setStatus(`redirecting-${platform}`);
     
     // Allow React state to update UI before redirecting
     setTimeout(() => {
@@ -57,19 +57,22 @@ export function ConsultationForm() {
       if (formData.size?.trim()) payload.size = formData.size.trim();
       if (formData.additionalDetails?.trim()) payload.additionalDetails = formData.additionalDetails.trim();
 
-      const whatsappUrl = generateWhatsAppUrl("custom", payload);
-      window.open(whatsappUrl, "_blank");
+      const url = platform === "whatsapp" 
+        ? generateWhatsAppUrl("custom", payload)
+        : generateTelegramUrl("custom", payload);
+      window.open(url, "_blank");
       
       // Reset state so form is usable when they return
       setStatus("idle");
     }, 1500);
   };
 
-  if (status === "redirecting") {
+  if (status.startsWith("redirecting")) {
+    const platformName = status === "redirecting-whatsapp" ? "WhatsApp" : "Telegram";
     return (
       <div className={styles.redirectingState} role="alert" aria-live="polite">
         <div className={styles.spinner} aria-hidden="true" />
-        <Typography variant="h4" as="p">Opening WhatsApp...</Typography>
+        <Typography variant="h4" as="p">Opening {platformName}...</Typography>
         <Typography variant="body" className={styles.redirectText}>
           You can securely share images and continue your consultation there.
         </Typography>
@@ -78,7 +81,7 @@ export function ConsultationForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form} noValidate>
+    <form onSubmit={(e) => e.preventDefault()} className={styles.form} noValidate>
       <div className={styles.fieldGroup}>
         <label htmlFor="name" className={styles.label}>Name *</label>
         <input 
@@ -194,8 +197,21 @@ export function ConsultationForm() {
       </div>
 
       <div className={styles.submitWrapper}>
-        <button type="submit" className={styles.submitBtn} disabled={status === "validating"}>
+        <button 
+          type="button" 
+          onClick={() => handleSubmit("whatsapp")}
+          className={styles.submitBtn} 
+          disabled={status === "validating"}
+        >
           Continue to WhatsApp
+        </button>
+        <button 
+          type="button" 
+          onClick={() => handleSubmit("telegram")}
+          className={styles.submitBtn} 
+          disabled={status === "validating"}
+        >
+          Continue to Telegram
         </button>
       </div>
     </form>
