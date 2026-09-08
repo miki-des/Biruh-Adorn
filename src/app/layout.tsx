@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Bodoni_Moda, Inter } from "next/font/google";
 import { Header } from "../components/layout/Header";
 import { Footer } from "../components/layout/Footer";
@@ -22,6 +22,12 @@ const interDisplay = Inter({
 export const metadata: Metadata = {
   title: `${brandConfig.name} | ${brandConfig.tagline}`,
   description: brandConfig.description,
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
