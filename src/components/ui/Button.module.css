@@ -19,24 +19,29 @@
   cursor: not-allowed;
 }
 
-/* Primary: Champagne-accented */
+/* Primary: Solid Navy (High Contrast) */
 .primary {
-  border-color: var(--color-accent);
-  color: var(--color-accent);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
+  border-color: var(--color-text-primary);
 }
 
 .primary:hover:not(:disabled) {
   background-color: var(--color-accent);
+  border-color: var(--color-accent);
   color: var(--color-bg-primary);
 }
 
-/* Secondary: Minimal ivory outline */
+/* Secondary: Solid White with Navy outline */
 .secondary {
-  border-color: var(--color-border);
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  border-color: var(--color-text-primary);
 }
 
 .secondary:hover:not(:disabled) {
-  border-color: var(--color-text-primary);
+  background-color: var(--color-text-primary);
+  color: var(--color-text-inverse);
 }
 
 /* Tertiary: Text/link action */

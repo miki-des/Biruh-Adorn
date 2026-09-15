@@ -8,23 +8,24 @@
 
 ## Semantic Colors (`globals.css`)
 ### Background (Environment)
-- `--color-bg-primary` (`#040914`): Deep Navy main background.
-- `--color-bg-secondary`: Elevated containers.
-- `--color-bg-elevated`: Highest surface depth.
-- `--color-bg-overlay`: Modals/menus.
+- `--color-bg-primary` (`#FFFFFF`): Crisp White main background.
+- `--color-bg-secondary`: Warm Ivory (`#FAF9F6`) elevated containers.
+- `--color-bg-elevated`: Highest surface depth (`#FFFFFF`).
+- `--color-bg-overlay`: Modals/menus (`rgba(255, 255, 255, 0.85)`).
 
 ### Text (Voice)
-- `--color-text-primary` (`#FAF9F6`): Primary Ivory text.
-- `--color-text-secondary`: Supporting ivory.
-- `--color-text-muted`: De-emphasized text.
-- `--color-text-inverse`: Dark text for use on light elements.
+- `--color-text-primary` (`#040914`): Primary Deep Navy text.
+- `--color-text-secondary`: Slate/Charcoal supporting text (`#2C364C`).
+- `--color-text-muted`: De-emphasized text (`#718096`).
+- `--color-text-inverse`: Light text for use on dark elements (`#FAF9F6`).
 
 ### Accent (Detail)
-- `--color-accent` (`#D4AF37`): Muted Champagne Gold. Used sparingly for borders, references, and active states.
+- `--color-accent` (`#D4AF37`): Champagne Gold. Used sparingly for borders, references, and active states.
 - `--color-accent-muted`: Subtle hover details.
+- `--color-accent-hover` (`#B8860B`): Darker gold for hover states.
 
 ### Borders
-- `--color-border`: Very subtle ivory line.
+- `--color-border`: Very subtle navy line.
 - `--color-border-accent`: Gold line for specific stylistic delineations.
 
 ## Typography

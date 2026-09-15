@@ -1,21 +1,21 @@
 :root {
-  /* Colors - Biruh Adorn Palette */
-  --color-bg-primary: #040914; /* Deep Navy Environment */
-  --color-bg-secondary: #081224;
-  --color-bg-elevated: #0C1A33;
-  --color-bg-overlay: rgba(4, 9, 20, 0.85);
+  /* Colors - Biruh Adorn Palette (Light Theme) */
+  --color-bg-primary: #FFFFFF; /* Crisp White Environment */
+  --color-bg-secondary: #FAF9F6; /* Warm Ivory */
+  --color-bg-elevated: #FFFFFF;
+  --color-bg-overlay: rgba(255, 255, 255, 0.85);
 
-  --color-text-primary: #FAF9F6; /* Ivory Voice */
-  --color-text-secondary: #EBEAE5;
-  --color-text-muted: #B3B9C5;
-  --color-text-inverse: #040914; /* For use on ivory backgrounds if needed */
+  --color-text-primary: #040914; /* Deep Navy Voice */
+  --color-text-secondary: #2C364C;
+  --color-text-muted: #718096;
+  --color-text-inverse: #FAF9F6; /* For use on dark backgrounds if needed */
 
   --color-accent: #D4AF37; /* Champagne Gold Detail */
   --color-accent-muted: rgba(212, 175, 55, 0.6);
-  --color-accent-hover: #E6C865;
+  --color-accent-hover: #B8860B; /* Darker gold for hover on light bg */
 
-  --color-border: rgba(250, 249, 246, 0.1);
-  --color-border-subtle: rgba(250, 249, 246, 0.05);
+  --color-border: rgba(4, 9, 20, 0.1);
+  --color-border-subtle: rgba(4, 9, 20, 0.05);
   --color-border-accent: rgba(212, 175, 55, 0.4);
 
   /* Typography Scale */
