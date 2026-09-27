@@ -80,7 +80,7 @@ export function MobileMenu() {
                   style={{ transitionDelay: `${index * 0.05}s` }}
                 >
                   <Link href={item.href} onClick={closeMenu} className={styles.navLink}>
-                    <Typography variant="display-lg" as="span">
+                    <Typography variant="h2" as="span">
                       {item.label}
                     </Typography>
                   </Link>
